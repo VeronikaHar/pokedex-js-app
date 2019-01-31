@@ -1,14 +1,18 @@
 /*background-color: #ecf3fd
 dark-blue-text: #174589
-purple: #4836a8 */
+purple: #4836a8
+orange:
+--secondary-color: #ffc25a;
+--secondary-color-lighter: #ffcf7e;
+--secondary-color-darker: #f3ae37;
+--secondary-color-font: #cf8912; */
 
 :root {
   --primary-color: #678fca;
-  --secondary-color: #ffc25a;
-  --secondary-color-lighter: #ffcf7e;
-  --secondary-color-darker: #f3ae37;
-  --secondary-color-font: #cf8912;
-  --light-grey-text: #848989;
+  --secondary-color: #ffde5a;
+  --secondary-color-lighter: #ffeeaa;
+  --secondary-color-darker: #f3cd37;
+  --secondary-color-font: #cfa912;
   --heading-font: 'ZCOOL KuaiLe', cursive;
   --heading-font-color: #174589;
   --gap: 10px;
