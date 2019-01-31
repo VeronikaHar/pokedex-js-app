@@ -1,0 +1,85 @@
+/*background-color: #ecf3fd
+dark-blue-text: #174589
+purple: #4836a8 */
+
+:root {
+  --primary-color: #678fca;
+  --secondary-color: #ffc25a;
+  --secondary-color-lighter: #ffcf7e;
+  --secondary-color-darker: #f3ae37;
+  --secondary-color-font: #cf8912;
+  --light-grey-text: #848989;
+  --heading-font: 'ZCOOL KuaiLe', cursive;
+  --heading-font-color: #174589;
+  --gap: 10px;
+  --font-weight: 700;
+  --font-size-basic: 18px;
+  --font-size-h: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ecf3fd;
+  font-family: 'Abel', sans-serif;
+  font-weight: 300;
+  font-size: var(--font-size-basic);
+  line-height: 1.6;
+  text-align: center;
+  max-width: 700px;
+}
+
+div {
+  text-align: left;
+  margin: 5px 10%;
+}
+
+
+.pokemon {
+  /* overwrites browser defaults and resets the border */
+  border: none;
+  font-family: inherit;
+
+  /* styles the button */
+  background-color: var(--primary-color);
+  color: #fff;
+  text-decoration: none;
+  padding: var(--gap);
+  border-radius: 5px;
+  box-shadow: 4px 3px 20px rgba(0, 0, 0, 0.3);
+  transition-duration: 0.3s opacity;
+}
+
+.pokemon:hover,
+.pokemon:focus {
+  cursor: pointer;
+  background-color: var(--secondary-color-lighter);
+  color: var(--secondary-color-font);
+}
+
+.pokemon:active {
+  box-shadow: none;
+}
+
+h1 {
+  font-family: var(--heading-font);
+  font-size: 30px;
+  font-weight: var(--font-weight);
+  color: var(--heading-font-color);
+}
+
+h2 {
+  font-family: var(--heading-font);
+  font-size: var(--font-size-h);
+  font-weight: var(--font-weight);
+  color: var(--heading-font-color);
+}
+
+h3 {
+  font-family: var(--heading-font);
+  font-size: var(--font-size-basic);
+  font-weight: var(--font-weight);
+  color: var(--heading-font-color);
+}

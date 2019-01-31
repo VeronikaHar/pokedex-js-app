@@ -4,8 +4,9 @@ var psyduck={name: 'Psyduck', height:80, abilities:['Damp', 'Cloud-nine', 'Swift
 
 var repository=[charmeleon, pikachu, psyduck];
 for (var i = 0; i < repository.length; i++) {
-  document.write('<div class=pokemon>' +repository[i].name + ' - height: ' + repository[i].height + ' cm.</div>')
   if (repository[i].height>90) {
-    document.write('- Wow, that\'s big! ')
+    document.write('<div class=pokemon>' +repository[i].name + ' - height: ' + repository[i].height + ' cm. Wow, that\'s big! </div>')
+  } else {
+    document.write('<div class=pokemon>' +repository[i].name + ' - height: ' + repository[i].height + ' cm.</div>')
   }
 }
