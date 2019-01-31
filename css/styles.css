@@ -2,19 +2,31 @@
 dark-blue-text: #174589
 purple: #4836a8
 orange:
---secondary-color: #ffc25a;
---secondary-color-lighter: #ffcf7e;
---secondary-color-darker: #f3ae37;
---secondary-color-font: #cf8912; */
+--fire-color: #ffc25a;
+--fire-color-lighter: #ffcf7e;
+--fire-color-darker: #f3ae37;
+--fire-color-font: #cf8912; */
 
 :root {
-  --primary-color: #678fca;
-  --secondary-color: #ffde5a;
-  --secondary-color-lighter: #ffeeaa;
-  --secondary-color-darker: #f3cd37;
-  --secondary-color-font: #cfa912;
+  --pokemon-color: #8274d0;
+  --pokemon-color-lighter: #ada3e6;
+  --pokemon-color-darker: #6151ba;
+  --pokemon-color-font: #2f1d8f;
+  --water-color: #6e93cb;
+  --water-color-lighter: #9ebae4;
+  --water-color-darker: #4974b3;
+  --water-color-font: #174589;
+  --electric-color: #ffe57e;
+  --electric-color-lighter: #ffeeaa;
+  --electric-color-darker: #ffde5a;
+  --electric-color-font: #cfa912;
+  --fire-color: #ffcf7e;
+  --fire-color-lighter: #ffe0aa;
+  --fire-color-darker: #ffc25a;
+  --fire-color-font: #cf8912;
   --heading-font: 'ZCOOL KuaiLe', cursive;
-  --heading-font-color: #174589;
+  --heading-font-color: #35acac;
+  --white: #fff;
   --gap: 10px;
   --font-weight: 700;
   --font-size-basic: 18px;
@@ -26,7 +38,7 @@ orange:
 }
 
 body {
-  background-color: #ecf3fd;
+  background-color: var(--white);
   font-family: 'Abel', sans-serif;
   font-weight: 300;
   font-size: var(--font-size-basic);
@@ -40,15 +52,11 @@ div {
   margin: 5px 10%;
 }
 
-
 .pokemon {
-  /* overwrites browser defaults and resets the border */
   border: none;
   font-family: inherit;
-
-  /* styles the button */
-  background-color: var(--primary-color);
-  color: #fff;
+  background-color: var(--pokemon-color);
+  color: var(--pokemon-color-font);
   text-decoration: none;
   padding: var(--gap);
   border-radius: 5px;
@@ -59,11 +67,71 @@ div {
 .pokemon:hover,
 .pokemon:focus {
   cursor: pointer;
-  background-color: var(--secondary-color-lighter);
-  color: var(--secondary-color-font);
+  background-color: var(--pokemon-color-darker);
+  color: var(--white);
 }
 
-.pokemon:active {
+.water {
+  border: none;
+  font-family: inherit;
+  background-color: var(--water-color-lighter);
+  color: var(--water-color-font);
+  text-decoration: none;
+  padding: var(--gap);
+  border-radius: 5px;
+  box-shadow: 4px 3px 20px rgba(0, 0, 0, 0.3);
+  transition-duration: 0.3s opacity;
+}
+
+.water:hover,
+.water:focus {
+  cursor: pointer;
+  background-color: var(--water-color-darker);
+  color: var(--white);
+}
+
+.electric {
+  border: none;
+  font-family: inherit;
+  background-color: var(--electric-color-lighter);
+  color: var(--electric-color-font);
+  text-decoration: none;
+  padding: var(--gap);
+  border-radius: 5px;
+  box-shadow: 4px 3px 20px rgba(0, 0, 0, 0.3);
+  transition-duration: 0.3s opacity;
+}
+
+.electric:hover,
+.electric:focus {
+  cursor: pointer;
+  background-color: var(--electric-color-darker);
+  color: var(--white);
+}
+
+.fire {
+  border: none;
+  font-family: inherit;
+  background-color: var(--fire-color-lighter);
+  color: var(--fire-color-font);
+  text-decoration: none;
+  padding: var(--gap);
+  border-radius: 5px;
+  box-shadow: 4px 3px 20px rgba(0, 0, 0, 0.3);
+  transition-duration: 0.3s opacity;
+}
+
+.fire:hover,
+.fire:focus {
+  cursor: pointer;
+  background-color: var(--fire-color-darker);
+  color: var(--white);
+}
+
+.pokemon:active,
+.water:active,
+.electric:active,
+.fire:active {
   box-shadow: none;
 }
 
