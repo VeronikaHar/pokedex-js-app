@@ -1,22 +1,37 @@
+var pokemonRepository = (function(){
 var repository = [
-  {name:'Charmeleon', height:110, type: 'fire', abilities:['blaze', 'solar-power']},
-  {name: 'Pikachu', height:40, type:'electric', abilities:['Static', 'Lightningrod']},
-  {name: 'Psyduck', height:80, type:'water', abilities:['Damp', 'Cloud-nine', 'Swift-swim']}
-];
+    {name:'Charmeleon', height:1.1, type: 'fire', abilities:['blaze', 'solar-power']},
+    {name: 'Pikachu', height:0.4, type:'electric', abilities:['Static', 'Lightningrod']},
+    {name: 'Psyduck', height:0.8, type:'water', abilities:['Damp', 'Cloud-nine', 'Swift-swim']}
+  ];
 
-for (var i = 0; i < repository.length; i++) {
-  if (repository[i].height>90) {
-    var nameHeight=repository[i].name + ' - height: ' + repository[i].height + ' cm. Wow, that\'s big!'
-  } else {
-    var nameHeight=repository[i].name + ' - height: ' + repository[i].height + ' cm.'
+  function add (pokemon) {
+    repository.push(pokemon);
   }
-  if (repository[i].type==='fire'){
+
+  function getAll() {
+    return repository;
+  }
+
+  return {
+    add: add,
+    getAll: getAll
+  };
+}) ();
+
+Object.keys(pokemonRepository.getAll()).forEach(function(pokemon) {
+  if (pokemonRepository.getAll()[pokemon].height>0.9) {
+    var nameHeight=pokemonRepository.getAll()[pokemon].name + ' - height: ' + pokemonRepository.getAll()[pokemon].height + ' m. Wow, that\'s big!'
+  } else {
+    var nameHeight=pokemonRepository.getAll()[pokemon].name + ' - height: ' + pokemonRepository.getAll()[pokemon].height + ' m.'
+  }
+  if (pokemonRepository.getAll()[pokemon].type==='fire'){
     document.write('<div class="fire">'+ nameHeight + '</div>')
-  } else if (repository[i].type==='electric'){
+  } else if (pokemonRepository.getAll()[pokemon].type==='electric'){
     document.write('<div class="electric">'+ nameHeight + '</div>')
-  } else if (repository[i].type==='water'){
+  } else if (pokemonRepository.getAll()[pokemon].type==='water'){
     document.write('<div class="water">'+ nameHeight + '</div>')
-  }else{
+  } else {
     document.write('<div class="pokemon">'+ nameHeight + '</div>')
   }
-}
+});
