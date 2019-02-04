@@ -6,7 +6,15 @@ var repository = [
   ];
 
   function add (pokemon) {
-    repository.push(pokemon);
+    if (typeof pokemon === 'object' &&
+        Object.keys(pokemon)=== ['name', 'height', 'type', 'abilities'] &&
+        typeof (pokemon.name && pokemon.type)=== 'string' &&
+        typeof pokemon.height === 'number' &&
+        typeof pokemon.abilities === 'string'|'object') {
+      repository.push(pokemon);
+    } else {
+      prompt('Please enter a pokemon with valid name, height, type and abilities properties!');
+    }
   }
 
   function getAll() {
