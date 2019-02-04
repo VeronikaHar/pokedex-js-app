@@ -19,17 +19,17 @@ var repository = [
   };
 }) ();
 
-Object.keys(pokemonRepository.getAll()).forEach(function(pokemon) {
-  if (pokemonRepository.getAll()[pokemon].height>0.9) {
-    var nameHeight=pokemonRepository.getAll()[pokemon].name + ' - height: ' + pokemonRepository.getAll()[pokemon].height + ' m. Wow, that\'s big!'
+pokemonRepository.getAll().forEach(function(pokemon) {
+  if (pokemon.height>0.9) {
+    var nameHeight=pokemon.name + ' - height: ' + pokemon.height + ' m. Wow, that\'s big!'
   } else {
-    var nameHeight=pokemonRepository.getAll()[pokemon].name + ' - height: ' + pokemonRepository.getAll()[pokemon].height + ' m.'
+    var nameHeight=pokemon.name + ' - height: ' + pokemon.height + ' m.'
   }
-  if (pokemonRepository.getAll()[pokemon].type==='fire'){
+  if (pokemon.type==='fire'){
     document.write('<div class="fire">'+ nameHeight + '</div>')
-  } else if (pokemonRepository.getAll()[pokemon].type==='electric'){
+  } else if (pokemon.type==='electric'){
     document.write('<div class="electric">'+ nameHeight + '</div>')
-  } else if (pokemonRepository.getAll()[pokemon].type==='water'){
+  } else if (pokemon.type==='water'){
     document.write('<div class="water">'+ nameHeight + '</div>')
   } else {
     document.write('<div class="pokemon">'+ nameHeight + '</div>')
