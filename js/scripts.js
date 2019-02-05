@@ -5,7 +5,7 @@ var repository = [
     {name: 'Psyduck', height:0.8, type:'water', abilities:['Damp', 'Cloud-nine', 'Swift-swim']}
   ];
 
-  function add (pokemon) {
+  function addListItem (pokemon) {
     var pokeProperties = Object.keys(pokemon);
     var checkArray = ['name', 'height', 'type', 'abilities'];
     var validObject = pokeProperties.length === checkArray.length? true:false;
@@ -27,7 +27,16 @@ var repository = [
       repository.push(pokemon);
     } else {
       prompt('Please enter a pokemon with valid name, height, type and abilities properties!');
-    }
+    };
+
+    var $liEl = document.createElement('li');
+    var $buttonEl = document.createElement('button');
+    $buttonEl.classlist.add(pokemon.type);
+    $buttonEl.innerText=pokemon.name;
+    $liEl.appendChild($buttonEl);
+
+    var $ul = document.querySelector('ul');
+    $ul.appendChild($liEl);
   }
 
   function getAll() {
@@ -35,13 +44,14 @@ var repository = [
   }
 
   return {
-    add: add,
+    add: addListItem,
     getAll: getAll
   };
 }) ();
 
 pokemonRepository.getAll().forEach(function(pokemon) {
-  if (pokemon.height>0.9) {
+  pokemonRepository.addListItem();
+  /*if (pokemon.height>0.9) {
     var nameHeight=pokemon.name + ' - height: ' + pokemon.height + ' m. Wow, that\'s big!'
   } else {
     var nameHeight=pokemon.name + ' - height: ' + pokemon.height + ' m.'
@@ -54,5 +64,5 @@ pokemonRepository.getAll().forEach(function(pokemon) {
     document.write('<div class="water">'+ nameHeight + '</div>')
   } else {
     document.write('<div class="pokemon">'+ nameHeight + '</div>')
-  }
+  }*/
 });
