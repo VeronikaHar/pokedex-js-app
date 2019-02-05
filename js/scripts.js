@@ -6,11 +6,16 @@ var repository = [
   ];
 
   function add (pokemon) {
+    var pokeProperties = Object.keys(pokemon);
     if (typeof pokemon === 'object' &&
-        Object.keys(pokemon)=== ['name', 'height', 'type', 'abilities'] &&
-        typeof (pokemon.name && pokemon.type)=== 'string' &&
+        pokeProperties[0] === 'name' &&
+        pokeProperties[1] === 'height' &&
+        pokeProperties[2] === 'type' &&
+        pokeProperties[3] === 'abilities' &&
+        typeof pokemon.name === 'string' &&
+        typeof pokemon.type === 'string' &&
         typeof pokemon.height === 'number' &&
-        typeof pokemon.abilities === 'string'|'object') {
+        (typeof pokemon.abilities === 'string'||typeof pokemon.abilities === 'object')) {
       repository.push(pokemon);
     } else {
       prompt('Please enter a pokemon with valid name, height, type and abilities properties!');
