@@ -7,11 +7,19 @@ var repository = [
 
   function add (pokemon) {
     var pokeProperties = Object.keys(pokemon);
-    if (typeof pokemon === 'object' &&
-        pokeProperties[0] === 'name' &&
-        pokeProperties[1] === 'height' &&
-        pokeProperties[2] === 'type' &&
-        pokeProperties[3] === 'abilities' &&
+    var checkArray = ['name', 'height', 'type', 'abilities'];
+    var validObject = pokeProperties.length === checkArray.length? true:false;
+
+    checkArray.forEach(function(el) {
+      if (pokeProperties.includes(el)){
+        validObject = true;
+      } else {
+        validObject = false;
+      }
+    });
+
+    if (validObject &&
+        typeof pokemon === 'object' &&
         typeof pokemon.name === 'string' &&
         typeof pokemon.type === 'string' &&
         typeof pokemon.height === 'number' &&
