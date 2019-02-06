@@ -1,10 +1,16 @@
 var pokemonRepository = (function(){
-var repository = [
+  var repository = [
     {name:'Charmeleon', height:1.1, type: 'fire', abilities:['blaze', 'solar-power']},
     {name: 'Pikachu', height:0.4, type:'electric', abilities:['Static', 'Lightningrod']},
     {name: 'Psyduck', height:0.8, type:'water', abilities:['Damp', 'Cloud-nine', 'Swift-swim']}
   ];
 
+// Function that collects pokemon details
+  function showDetails(pokemon){
+    console.log(pokemon);
+  };
+
+//Function that adds a new pokemon object to DOM
   function addListItem (pokemon) {
     var pokeProperties = Object.keys(pokemon);
     var checkArray = ['name', 'height', 'type', 'abilities'];
@@ -29,14 +35,20 @@ var repository = [
       prompt('Please enter a pokemon with valid name, height, type and abilities properties!');
     };
 
+    //Shaping DOM structure
     var $liEl = document.createElement('li');
     var $buttonEl = document.createElement('button');
-    $buttonEl.classlist.add(pokemon.type);
+    $buttonEl.classList.add(pokemon.type);
     $buttonEl.innerText=pokemon.name;
     $liEl.appendChild($buttonEl);
 
     var $ul = document.querySelector('ul');
     $ul.appendChild($liEl);
+
+    // Event listener that dispalys Pokemon details upon clicking on chosen pokemon
+    $buttonEl.addEventListener('click', function (event) {
+      showDetails(pokemon);
+    });
   }
 
   function getAll() {
@@ -44,25 +56,11 @@ var repository = [
   }
 
   return {
-    add: addListItem,
+    addListItem: addListItem,
     getAll: getAll
   };
 }) ();
 
 pokemonRepository.getAll().forEach(function(pokemon) {
-  pokemonRepository.addListItem();
-  /*if (pokemon.height>0.9) {
-    var nameHeight=pokemon.name + ' - height: ' + pokemon.height + ' m. Wow, that\'s big!'
-  } else {
-    var nameHeight=pokemon.name + ' - height: ' + pokemon.height + ' m.'
-  }
-  if (pokemon.type==='fire'){
-    document.write('<div class="fire">'+ nameHeight + '</div>')
-  } else if (pokemon.type==='electric'){
-    document.write('<div class="electric">'+ nameHeight + '</div>')
-  } else if (pokemon.type==='water'){
-    document.write('<div class="water">'+ nameHeight + '</div>')
-  } else {
-    document.write('<div class="pokemon">'+ nameHeight + '</div>')
-  }*/
+  pokemonRepository.addListItem(pokemon);
 });
