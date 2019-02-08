@@ -1,44 +1,21 @@
 var pokemonRepository = (function(){
-  var repository = [
-    {name:'Charmeleon', height:1.1, type: 'fire', abilities:['blaze', 'solar-power']},
-    {name: 'Pikachu', height:0.4, type:'electric', abilities:['Static', 'Lightningrod']},
-    {name: 'Psyduck', height:0.8, type:'water', abilities:['Damp', 'Cloud-nine', 'Swift-swim']}
-  ];
+  var repository = [];
+  var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-// Function that collects pokemon details
-  function showDetails(pokemon){
-    console.log(pokemon);
-  };
-
-//Function that adds a new pokemon object to DOM
-  function addListItem (pokemon) {
-    var pokeProperties = Object.keys(pokemon);
-    var checkArray = ['name', 'height', 'type', 'abilities'];
-    var validObject = pokeProperties.length === checkArray.length? true:false;
-
-    checkArray.forEach(function(el) {
-      if (pokeProperties.includes(el)){
-        validObject = true;
-      } else {
-        validObject = false;
-      }
+  // Function that collects pokemon details
+  function showDetails(pokemon) {
+    loadDetails(pokemon).then(function () {
+      console.log(pokemon);
     });
+  }
 
-    if (validObject &&
-        typeof pokemon === 'object' &&
-        typeof pokemon.name === 'string' &&
-        typeof pokemon.type === 'string' &&
-        typeof pokemon.height === 'number' &&
-        (typeof pokemon.abilities === 'string'||typeof pokemon.abilities === 'object')) {
-      repository.push(pokemon);
-    } else {
-      prompt('Please enter a pokemon with valid name, height, type and abilities properties!');
-    };
+  //Function that adds a new button with pokemon name to DOM
+  function addListItem(pokemon) {
 
     //Shaping DOM structure
     var $liEl = document.createElement('li');
     var $buttonEl = document.createElement('button');
-    $buttonEl.classList.add(pokemon.type);
+    $buttonEl.classList.add('pokemon');
     $buttonEl.innerText=pokemon.name;
     $liEl.appendChild($buttonEl);
 
@@ -51,16 +28,69 @@ var pokemonRepository = (function(){
     });
   }
 
+//Function that accepts pokemon object and adds it to repository
+  function add(pokemon) {
+    if (typeof pokemon === 'object' && typeof pokemon.name === 'string') {
+    repository.push(pokemon);
+    } else {
+      prompt('Please enter a valid pokemon object!');
+    };
+  }
+
   function getAll() {
     return repository;
   }
 
+  function loadList() {
+    return fetch(apiUrl).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.results.forEach(function (pokemon) {
+        var pokemon = {
+          name: pokemon.name,
+          detailsUrl: pokemon.url
+        };
+        add(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    })
+  }
+
+  function loadDetails(pokemon) {
+    var url = pokemon.detailsUrl;
+    return fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (details) {
+      // Now we add the details to the pokemon item
+      pokemon.imageUrl = details.sprites.front_default;
+      pokemon.height = details.height;
+      pokemon.types = [];
+      for (i = 0; i < details.types.length; i++) {
+        pokemon.types.push(details.types[i].type.name);
+      };
+      pokemon.abilities = [];
+      for (i = 0; i < details.abilities.length; i++) {
+        pokemon.abilities.push(details.abilities[i].ability.name);
+      };
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+
   return {
+    add: add,
     addListItem: addListItem,
-    getAll: getAll
+    getAll: getAll,
+    loadList: loadList,
+    loadDetails: loadDetails,
+    showDetails: showDetails
   };
 }) ();
 
-pokemonRepository.getAll().forEach(function(pokemon) {
-  pokemonRepository.addListItem(pokemon);
+pokemonRepository.loadList().then(function() {
+  // Now the data is loaded!
+  pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
+  });
 });

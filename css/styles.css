@@ -1,12 +1,3 @@
-/*background-color: #ecf3fd
-dark-blue-text: #174589
-purple: #4836a8
-orange:
---fire-color: #ffc25a;
---fire-color-lighter: #ffcf7e;
---fire-color-darker: #f3ae37;
---fire-color-font: #cf8912; */
-
 :root {
   --pokemon-color: #8274d0;
   --pokemon-color-lighter: #ada3e6;
@@ -60,19 +51,28 @@ button {
   margin-bottom: var(--gap);
 }
 
-.pokemon {
-  background-color: var(--pokemon-color);
-  color: var(--pokemon-color-font);
+h1 {
+  font-family: var(--heading-font);
+  font-size: 30px;
+  font-weight: var(--font-weight);
+  color: var(--heading-font-color);
 }
 
-.pokemon:hover,
-.pokemon:focus {
-  cursor: pointer;
-  background-color: var(--pokemon-color-darker);
-  color: var(--white);
+h2 {
+  font-family: var(--heading-font);
+  font-size: var(--font-size-h);
+  font-weight: var(--font-weight);
+  color: var(--heading-font-color);
 }
 
-.water {
+h3 {
+  font-family: var(--heading-font);
+  font-size: var(--font-size-basic);
+  font-weight: var(--font-weight);
+  color: var(--heading-font-color);
+}
+
+/* .water {
   background-color: var(--water-color-lighter);
   color: var(--water-color-font);
 }
@@ -106,34 +106,22 @@ button {
   cursor: pointer;
   background-color: var(--fire-color-darker);
   color: var(--white);
+} */
+
+.pokemon {
+  background-color: var(--pokemon-color-lighter);
+  color: var(--pokemon-color-font);
 }
 
-.pokemon:active,
-.water:active,
-.electric:active,
-.fire:active {
+.pokemon:hover,
+.pokemon:focus {
+  cursor: pointer;
+  background-color: var(--pokemon-color-darker);
+  color: var(--white);
+}
+
+.pokemon:active {
   box-shadow: none;
-}
-
-h1 {
-  font-family: var(--heading-font);
-  font-size: 30px;
-  font-weight: var(--font-weight);
-  color: var(--heading-font-color);
-}
-
-h2 {
-  font-family: var(--heading-font);
-  font-size: var(--font-size-h);
-  font-weight: var(--font-weight);
-  color: var(--heading-font-color);
-}
-
-h3 {
-  font-family: var(--heading-font);
-  font-size: var(--font-size-basic);
-  font-weight: var(--font-weight);
-  color: var(--heading-font-color);
 }
 
 ul {
