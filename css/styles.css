@@ -1,4 +1,4 @@
-:root {
+/* colors used:
   --pokemon-color: #8274d0;
   --pokemon-color-lighter: #ada3e6;
   --pokemon-color-darker: #6151ba;
@@ -15,13 +15,22 @@
   --fire-color-lighter: #ffe0aa;
   --fire-color-darker: #ffc25a;
   --fire-color-font: #cf8912;
+  */
+
+:root {
+  --pokemon-color: #ffe57e;
+  --pokemon-color-lighter: #ffeeaa;
+  --pokemon-color-darker: #ffde5a;
+  --pokemon-color-font: #000;
   --heading-font: 'ZCOOL KuaiLe', cursive;
-  --heading-font-color: #35acac;
+  --heading-font-color: #14cc80;
   --white: #fff;
   --gap: 10px;
   --font-weight: 700;
-  --font-size-basic: 18px;
-  --font-size-h: 24px;
+  --font-size-basic: 20px;
+  --font-size-h: 28px;
+  --shadow: 4px 3px 20px #fff;
+  --radius: 7px;
 }
 
 * {
@@ -29,33 +38,39 @@
 }
 
 body {
+  background-image: url('pokemon_background.jpg');
+  background-size:contain;
   background-color: var(--white);
-  font-family: 'Abel', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: var(--font-size-basic);
   line-height: 1.6;
-  max-width: 700px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 button {
   border: none;
   font-family: inherit;
+  font-size: 18px;
   text-decoration: none;
   padding: var(--gap);
-  border-radius: 5px;
-  box-shadow: 4px 3px 20px rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   transition-duration: 0.3s opacity;
   text-align: left;
+  width: auto;
   min-width: 300px;
   margin-bottom: var(--gap);
 }
 
 h1 {
   font-family: var(--heading-font);
-  font-size: 30px;
+  font-size: 38px;
   font-weight: var(--font-weight);
   color: var(--heading-font-color);
+  text-shadow: var(--shadow);
+  padding-left: var(--gap);
 }
 
 h2 {
@@ -63,6 +78,7 @@ h2 {
   font-size: var(--font-size-h);
   font-weight: var(--font-weight);
   color: var(--heading-font-color);
+  text-shadow: var(--shadow);
 }
 
 h3 {
@@ -70,43 +86,75 @@ h3 {
   font-size: var(--font-size-basic);
   font-weight: var(--font-weight);
   color: var(--heading-font-color);
+  text-shadow: var(--shadow);
 }
 
-/* .water {
-  background-color: var(--water-color-lighter);
-  color: var(--water-color-font);
+#modal-container {
+  display: none;
 }
 
-.water:hover,
-.water:focus {
-  cursor: pointer;
-  background-color: var(--water-color-darker);
+#modal-container.is-visible {
+  position: fixed;
+  padding: 20px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  
+  /* to show it above other content */
+  z-index: 999; 
+  
+  /* to allow scrolling if the screen is not high enough*/
+  overflow: auto; 
+  
+  /* this is used to center the modal */
+  display: grid;
+  text-align: center;
+}
+
+.modal {
+  margin: auto;
+  background-image: url('pokemon_modal.jpg');
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 15px;
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.modal-close {
+  float: right;
+  border: 0;
+  border-radius: var(--radius);
+  background: #e71212;
   color: var(--white);
+  text-decoration: none;
+  text-align: center;
+  font-family: var(--heading-font);
+  font-size: 18px;
+  box-shadow: var(--shadow);
+  margin: 15px;
 }
 
-.electric {
-  background-color: var(--electric-color-lighter);
-  color: var(--electric-color-font);
+.modal p {
+  padding: 8px;
+  margin: var(--gap);
+  background: rgb(233, 232, 232);
+  border-radius: var(--radius);
+  text-align: left;
+  background-size: auto;
 }
 
-.electric:hover,
-.electric:focus {
-  cursor: pointer;
-  background-color: var(--electric-color-darker);
-  color: var(--white);
+.modal h2 {
+  margin-left: 15px;
+  color:#e71212;
 }
-
-.fire {
-  background-color: var(--fire-color-lighter);
-  color: var(--fire-color-font);
-}
-
-.fire:hover,
-.fire:focus {
-  cursor: pointer;
-  background-color: var(--fire-color-darker);
-  color: var(--white);
-} */
 
 .pokemon {
   background-color: var(--pokemon-color-lighter);
