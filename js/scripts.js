@@ -64,9 +64,6 @@ var pokemonRepository = (function(){
         }
       });
     }) ();
-    /* loadDetails(pokemon).then(function () {
-      console.log(pokemon);
-    });*/
   }
   
   
@@ -160,3 +157,22 @@ pokemonRepository.loadList().then(function() {
   });
 });
 
+function searchPoke() {
+  // Declare variables
+  var input, filter, ul, li, pokeButton, i, txtValue;
+  input = document.querySelector('#pokeInput');
+  filter = input.value.toUpperCase();
+  ul = document.querySelector('ul');
+  li = document.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    pokeButton = li[i].getElementsByClassName('pokemon')[0];
+    txtValue = pokeButton.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
