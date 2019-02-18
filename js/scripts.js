@@ -77,11 +77,6 @@ var pokemonRepository = (() => {
     $buttonEl.innerText=pokemon.name.charAt(0).toUpperCase().toUpperCase()+pokemon.name.slice(1);
     $liEl.appendChild($buttonEl);
     
-    //Creating div for a modal with pokemon details
-    var $modalEl=document.createElement('div');
-    $modalEl.setAttribute('id','modal-container');
-    $liEl.appendChild($modalEl);
-    
     var $ul = document.querySelector('ul');
     $ul.appendChild($liEl);
     
