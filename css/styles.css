@@ -2,10 +2,10 @@
   --pokemon-color: #ffe57e;
   --pokemon-color-lighter: #ffeeaa;
   --pokemon-color-darker: #ffde5a;
-  --pokemon-color-font: #000;
   --heading-font: 'ZCOOL KuaiLe', cursive;
   --heading-font-color: #14cc80;
   --white: #fff;
+  --black: #000;
   --gap: 10px;
   --font-weight: 700;
   --font-size-basic: 20px;
@@ -24,7 +24,7 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-color: var(--white);
+  background-color: var(--black);
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: var(--font-size-basic);
@@ -169,12 +169,10 @@ header {
 }
 
 #pokeInput {
-  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
-  background-size: contain;
-  background-repeat: no-repeat; 
+  opacity: 0.8; 
   background-color: #e3f5fa;
   font-size: 16px; 
-  padding: 12px 25px 12px 50px; 
+  padding: 12px 15px 12px 25px; 
   border: 1px solid #ddd; /* Add a grey border */
   border-radius: var(--radius);
   margin-left: 26%;
@@ -184,7 +182,7 @@ header {
 
 .pokemon {
   background-color: var(--pokemon-color-lighter);
-  color: var(--pokemon-color-font);
+  opacity: 0.8;
 }
 
 .pokemon:hover,
