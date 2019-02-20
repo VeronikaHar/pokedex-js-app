@@ -29,8 +29,8 @@ body {
   font-weight: 300;
   font-size: var(--font-size-basic);
   line-height: 1.6;
-  max-width: 90%;
-  margin: 0 auto;
+  max-width: 900px;
+  margin: auto;
 }
 
 button {
@@ -169,7 +169,7 @@ header {
 }
 
 #pokeInput {
-  opacity: 0.8; 
+  opacity: 0.9; 
   background-color: #e3f5fa;
   font-size: 16px; 
   padding: 12px 15px 12px 25px; 
@@ -182,7 +182,7 @@ header {
 
 .pokemon {
   background-color: var(--pokemon-color-lighter);
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .pokemon:hover,

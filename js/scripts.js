@@ -48,8 +48,6 @@ var pokemonRepository = (() => {
         showModal(pokemonName, pokemonDetails);
       });
        
-      
-      
       //Close modal by pressing ESC on the keyboard
       window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && $modalContainer.classList.contains('is-visible')) {
@@ -65,7 +63,6 @@ var pokemonRepository = (() => {
       });
     }) ();
   }
-  
   
   //Function that adds a new button with pokemon name to DOM
   function addListItem(pokemon) {
@@ -137,12 +134,9 @@ var pokemonRepository = (() => {
   }
   
   return {
-    add: add,
     addListItem: addListItem,
     getAll: getAll,
     loadList: loadList,
-    loadDetails: loadDetails,
-    showDetails: showDetails
   };
 }) ();
 
