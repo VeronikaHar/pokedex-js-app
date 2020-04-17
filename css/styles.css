@@ -54,7 +54,7 @@ h1 {
   font-weight: var(--font-weight);
   color: var(--heading-font-color);
   text-shadow: var(--shadow);
-  padding-left: var(--gap);
+  padding-left: 50px;
 }
 
 h2 {
